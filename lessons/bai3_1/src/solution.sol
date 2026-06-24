@@ -8,7 +8,7 @@ contract solution {
         age = _age;
     }
 
-    function setProfile(string _name, uint _age) public {
+    function setProfile(string memory _name, uint _age) public {
         name = _name;
         age = _age;
     }
