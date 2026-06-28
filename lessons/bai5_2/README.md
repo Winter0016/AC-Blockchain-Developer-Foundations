@@ -1,31 +1,66 @@
-# Bài Tập 5.2 – Gửi Transaction dùng Ethers.js + Hardhat
+## Foundry
 
-🎯 Mục tiêu:
-- Deploy một smart contract đơn giản bằng Hardhat.
-- Gọi hàm `increment()` từ contract bằng Ethers.js.
-- In kết quả của `getCount()` ra console.
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
----
+Foundry consists of:
 
-## ✅ Yêu cầu
+- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-1. Sử dụng ac-hardhat-template: https://github.com/appscyclone/ac-hardhat-template
+## Documentation
 
-2. Đọc hiểu
-   - Script deploy contract deploy/1-deploy.ts
-   - Script tương tác Counter contract scripts/test.ts
-   - Unit test script test/Counter.test.ts
+https://book.getfoundry.sh/
 
----
+## Usage
 
-## 🧪 Kiểm tra
+### Build
 
-Chạy:
-```bash
-npx hardhat run test # chạy unit test trước khi deploy 
-npx hardhat deploy --network sepolia --tags deploy # deploy lên sepolia network
-npx hardhat run scripts/test.ts
+```shell
+$ forge build
 ```
 
-Kết quả:
-- Hiện ra số `1` nếu gọi thành công `increment()` một lần.
+### Test
+
+```shell
+$ forge test
+```
+
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
