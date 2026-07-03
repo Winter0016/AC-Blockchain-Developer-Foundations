@@ -1,0 +1,20 @@
+{
+  "name": "bai5_3",
+  "version": "1.0.0",
+  "description": "🎯 Mục tiêu: - Hiểu và sử dụng ABI để gọi hàm smart contract. - Kết nối tới contract đã deploy sẵn và gọi hàm đọc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "viem": "^2.54.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
