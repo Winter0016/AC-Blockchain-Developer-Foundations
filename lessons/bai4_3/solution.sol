@@ -1,19 +1,17 @@
-//SPDX-License-Identifier: MIT
-
-pragma solidity ^0.8.13;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
 
 contract Voting {
     struct Candidate {
         string name;
         uint voteCount;
+        bytes32 uniqueID;
     }
 
     mapping(uint => Candidate) public candidates;
-
     mapping(address => bool) public hasVoted;
 
     address public owner;
-
     uint public currentId;
 
     constructor() {
@@ -29,7 +27,8 @@ contract Voting {
 
     function addCandidate(string memory name) public onlyOwner {
         uint id = currentId++;
-        candidates[id] = Candidate(name, 0);
+        bytes32 uniqueID = keccak256(abi.encodePacked(msg.sender, name, id));
+        candidates[id] = Candidate(name, 0, uniqueID);
     }
 
     function vote(uint candidateId) public {
@@ -41,10 +40,11 @@ contract Voting {
 
     function getCandidate(
         uint candidateId
-    ) public view returns (string memory, uint) {
+    ) public view returns (string memory, uint, bytes32) {
         return (
             candidates[candidateId].name,
-            candidates[candidateId].voteCount
+            candidates[candidateId].voteCount,
+            candidates[candidateId].uniqueID
         );
     }
 }
