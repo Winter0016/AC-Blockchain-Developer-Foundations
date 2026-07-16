@@ -8,7 +8,7 @@ contract InteractionScript is Script {
     MyToken public mytoken;
 
     function setUp() public {
-        mytoken = MyToken(address(0x41d0Ad4E6227062B59CA673B418Fc00E3A2d10Cf));
+        mytoken = MyToken(address(0x841e707CB0bb81b5973f2D451378a629878B13BF));
     }
 
     function run() public {
